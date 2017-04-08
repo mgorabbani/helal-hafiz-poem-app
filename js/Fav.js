@@ -7,6 +7,7 @@ import poems from './Poems'
 
 import { observer } from 'mobx-react/native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {AdMobBanner } from 'react-native-admob'
 
 
 @observer
@@ -46,6 +47,14 @@ export default class List extends React.Component {
           </View>
            )
         }
+         <View style={{justifyContent:'center',alignItems:'center'}}>
+                     <AdMobBanner
+  bannerSize="banner"
+  adUnitID="ca-app-pub-7356593470289291/6937170966"
+  testDeviceID="05157df524a74333"
+  didFailToReceiveAdWithError={this.bannerError} />
+                    </View>
+                    
       </View>
     );
   }

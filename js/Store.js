@@ -51,12 +51,15 @@ favDataSet = observable([]);
   }
 
   updateAsync() {
-    newData = []
-    AsyncStorage.setItem('kobitaDB', JSON.stringify(newData))
     AsyncStorage.getItem('kobitaDB').then((data) => {
-      d = JSON.parse(data)
-      this.favDataSet.replace(d)
-
+      if (data !== null) {
+        d = JSON.parse(data)
+        this.favDataSet.replace(d)
+      }
+      else{
+        newData = []
+        AsyncStorage.setItem('kobitaDB', JSON.stringify(newData))
+      }
     })
   }
 

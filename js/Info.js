@@ -5,6 +5,9 @@ import { StackNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Octicons from 'react-native-vector-icons/Octicons';
 import Entypo from 'react-native-vector-icons/Entypo';
+
+import { AdMobBanner } from 'react-native-admob'
+
 import {observer} from 'mobx-react/native'
 @observer
 export default class Info extends React.Component {
@@ -66,8 +69,8 @@ toggleNightMode () {
                   </View>
                 </View>
               </View>
-              <View style={{backgroundColor:'red'}}>
-                <Picker style={{ color:'#0D8F4F', backgroundColor: '#fff',width:100}}
+              <View>
+                <Picker style={{ color:'#0D8F4F',backgroundColor:'#fff',width:100}}
                 selectedValue={this.state.size}
                 onValueChange={(s) => this.changeFontSize(s)}>
                 <Picker.Item label="15" value="15" />
@@ -109,6 +112,13 @@ toggleNightMode () {
                <Ionicons name="ios-arrow-forward-outline" size={32} color='#0D8F4F' />
             </View>
           </ TouchableNativeFeedback>
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+          <AdMobBanner
+            bannerSize="banner"
+            adUnitID="ca-app-pub-7356593470289291/6937170966"
+            testDeviceID="05157df524a74333"
+            didFailToReceiveAdWithError={this.bannerError} />
+        </View>
         </View>
       </View>
     );

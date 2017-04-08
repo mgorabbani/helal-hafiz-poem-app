@@ -4,10 +4,10 @@ import React from 'react';
 // backgroundColor="#18A867"
 // barStyle="light-content"
 // />
-import { StyleSheet, StatusBar,Text, TextInput, TouchableNativeFeedback, View, Button, ListView, ScrollView } from 'react-native';
+import { StyleSheet, StatusBar, Text, TextInput, TouchableNativeFeedback, View, Button, ListView, ScrollView } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import poems from './Poems'
-
+import { AdMobBanner } from 'react-native-admob'
 
 
 
@@ -25,27 +25,34 @@ export default class List extends React.Component {
     return (
       <View style={styles.container}>
         <StatusBar
-        backgroundColor="#18A867"
-        barStyle="light-content"
+          backgroundColor="#18A867"
+          barStyle="light-content"
         />
         <View style={{ alignItems: 'center', backgroundColor: "#12CC7B", padding: 10 }}>
 
-            <Text style={{ fontSize: 20, color: '#fff',  }}> কবিতা </Text>
+          <Text style={{ fontSize: 20, color: '#fff', }}> কবিতা </Text>
         </View>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(rowData) => this._renderScene(rowData)}
         />
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+          <AdMobBanner
+            bannerSize="banner"
+            adUnitID="ca-app-pub-7356593470289291/6937170966"
+            testDeviceID="05157df524a74333"
+            didFailToReceiveAdWithError={this.bannerError} />
+        </View>
       </View>
     )
   }
 
   _renderScene(rowData) {
     return (
-      <TouchableNativeFeedback onPress={() => this.props.navigation.navigate('single', {  title: rowData.title, poem: rowData.poem })}>
+      <TouchableNativeFeedback onPress={() => this.props.navigation.navigate('single', { title: rowData.title, poem: rowData.poem })}>
         <View style={{ alignItems: 'center', paddingTop: 20, paddingBottom: 20, flexDirection: 'row', borderBottomWidth: 1, borderColor: '#f7f7f7' }}>
 
-              <Text style={{ marginLeft: 15, fontSize: 20 }}>{rowData.title}</Text>
+          <Text style={{ marginLeft: 15, fontSize: 20 }}>{rowData.title}</Text>
         </View>
       </TouchableNativeFeedback>)
   }

@@ -1,3 +1,4 @@
+
 import React from 'react';
 // import Animation from 'lottie-react-native';
 import { Animated, StyleSheet, Text, TextInput, TouchableOpacity,TouchableNativeFeedback, View, ListView, ScrollView, Share, AsyncStorage, ToastAndroid } from 'react-native';
@@ -7,6 +8,7 @@ import { observer } from 'mobx-react/native'
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {AdMobBanner } from 'react-native-admob'
 
 @observer
 export default class Single extends React.Component {
@@ -23,7 +25,9 @@ export default class Single extends React.Component {
 
         this._shareMessage = this._shareMessage.bind(this);
         this._setLove = this._setLove.bind(this);
+        
     }
+
 
     static navigationOptions = {
         header: ({ state, setParams }) => ({
@@ -33,7 +37,6 @@ export default class Single extends React.Component {
             tintColor: '#fff',
             titleStyle: {
                 color: '#fff',
-                fontFamily: 'CharukolaUltraLight'
             }
         })
     };
@@ -93,6 +96,7 @@ export default class Single extends React.Component {
                 <View style={{ flex: .85 }}>
                     <View style={{ alignItems: 'center' }}>
 
+
                                 <Text style={{ color: this.state.color, fontSize: 24, paddingTop: 10 }}>{this.props.screenProps.fontSize} {this.props.navigation.state.params.title}</Text>
 
 
@@ -114,8 +118,12 @@ export default class Single extends React.Component {
                                 />
 
                     </ScrollView>
-                    <View style={{ flex: .15 }}>
-
+                    <View style={{ flex: .15,justifyContent:'center',alignItems:'center'}}>
+                      <AdMobBanner
+  bannerSize="banner"
+  adUnitID="ca-app-pub-7356593470289291/6937170966"
+  testDeviceID="05157df524a74333"
+  didFailToReceiveAdWithError={this.bannerError} />
                     </View>
                 </View>
             </View>
@@ -127,7 +135,7 @@ export default class Single extends React.Component {
         return {
             color: this.state.color,
             fontSize: this.state.size,
-            lineHeight: 34,
+            lineHeight: this.state.size*2,
             textAlign: 'center',
             backgroundColor: 'transparent'
         }

@@ -24,9 +24,12 @@ export default class About extends React.Component {
             source={require('../assets/helal-hafiz.jpg')}
           />
           </View>
-          <Text style={{ paddingTop: 50 }}>
-            এই অ্যাপ এর সকল কবিতা কবি হেলাল হাফিজের। কবিতাগুলি ইন্টারনেট থেকে সংগ্রহ করা। এখানে আমাদের কোনো ক্রেডিট নাই.সবগুলো কবিতার ক্রেডিট সম্পূর্ণ লেখকের।
+          <Text style={{ paddingTop: 20 }}>
+          এই এপসের সবগুলো কবিতা ইন্টারনেটে বিভিন্ন সাইট ঘেটে একত্রিত করা হয়েছে। কবির প্রতি ভালোবাসা থেকেই এই স্বল্প প্রয়াস আমাদের। ভালোবাসা প্রিয় কবি হেলাল হাফিজ।
           </Text>
+          <View style={{ marginTop:20,alignItems:'center'}}>
+            <Text>About Us</Text>
+            </View>
           <TouchableOpacity onPress={() => Linking.openURL("http://m.me/mgorabbani")} >
             <View style={{ paddingTop: 20, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 1, borderColor: '#f7f7f7' }}>
               <View>
@@ -41,11 +44,12 @@ export default class About extends React.Component {
             <View style={{ paddingTop: 10, flexDirection: 'row', justifyContent: 'space-between' }}>
               <View>
                 <Text> Content Creator</Text>
-                <Text style={{ fontSize: 17 }}> Mijanur Rahman Nion</Text>
+                <Text style={{ fontSize: 17 }}> Neon Rahman</Text>
               </View>
               <MaterialCommunityIcons style={{ right: 30 }} name="facebook-messenger" size={35} color="#137CC9" />
             </View>
           </TouchableOpacity>
+
           <View style={{
             alignItems: 'center',
             justifyContent: 'center',
